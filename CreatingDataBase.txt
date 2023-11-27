@@ -1,0 +1,99 @@
+CREATE TABLE `lms`.`branch` (
+  `branch_id` INT NOT NULL,
+  `manager_id` INT NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`branch_id`)
+);
+
+
+CREATE TABLE `lms`.`customer` (
+  `customer_id` INT NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `book_issues` VARCHAR(255) NOT NULL,
+  `reg_date` DATE NOT NULL,
+  `branch_id` INT NOT NULL,
+   PRIMARY KEY (`customer_id`),
+   CONSTRAINT `branchid`
+   FOREIGN KEY (`branch_id`)
+   REFERENCES `lms`.`branch` (`branch_id`),
+);
+
+
+CREATE TABLE `lms`.`publisher` (
+  `publisher_id` INT NOT NULL,
+  `category` INT NOT NULL,
+  `price` VARCHAR(255) NOT NULL,
+  `publishing_year` INT NOT NULL,
+  PRIMARY KEY (`publisher_id`)
+);
+
+
+
+CREATE TABLE `lms`.`author` (
+  `title` VARCHAR(255) NOT NULL,
+  `author_name` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`title`)
+);
+
+
+CREATE TABLE `lms`.`staff` (
+  `staff_id` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `salary` INT NOT NULL,
+  `branch_id` INT NOT NULL,
+  `customer_id` INT NOT NULL,
+  PRIMARY KEY (`staff_id`),
+  INDEX `branchid_idx` (`branch_id` ASC) VISIBLE,
+  INDEX `customerid_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `branchid`
+    FOREIGN KEY (`branch_id`)
+    REFERENCES `lms`.`branch` (`branch_id`),
+  CONSTRAINT `customerid`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `lms`.`customer` (`customer_id`)
+);
+
+
+
+
+
+
+CREATE TABLE `lms`.`books` (
+  `book_id` INT NOT NULL,
+  `branch_id` INT NOT NULL,
+  `publisher_id` INT NOT NULL,
+  `title` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`book_id`),
+  INDEX `branchid_idx` (`branch_id` ASC) VISIBLE,
+  INDEX `publisherid_idx` (`publisher_id` ASC) VISIBLE,
+  INDEX `title_idx` (`title` ASC) VISIBLE,
+  CONSTRAINT `brnch_id`
+    FOREIGN KEY (`branch_id`)
+    REFERENCES `lms`.`branch` (`branch_id`),
+  CONSTRAINT `publisherid`
+    FOREIGN KEY (`publisher_id`)
+    REFERENCES `lms`.`publisher` (`publisher_id`),
+  CONSTRAINT `title`
+    FOREIGN KEY (`title`)
+    REFERENCES `lms`.`author` (`title`)
+);
+
+CREATE TABLE `lms`.`issued_status` (
+  `issued_id` INT NOT NULL,
+  `issue_date` DATE NOT NULL,
+  `status` VARCHAR(45) NOT NULL,
+  `customer_id` INT NOT NULL,
+  `book_id` INT NOT NULL,
+  PRIMARY KEY (`issued_id`),
+  INDEX `cust_id_idx` (`customer_id` ASC) VISIBLE,
+  INDEX `bk_id_idx` (`book_id` ASC) VISIBLE,
+  CONSTRAINT `cust_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `lms`.`customer` (`customer_id`),
+  CONSTRAINT `bk_id`
+    FOREIGN KEY (`book_id`)
+    REFERENCES `lms`.`books` (`book_id`)
+);
+

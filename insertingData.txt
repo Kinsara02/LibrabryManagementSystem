@@ -1,0 +1,71 @@
+insert into branch values(201, 1, 'building-2A/ A-Site');
+insert into branch values(202, 2, 'building-3A/ B-Site');
+insert into branch values(203, 3, 'building-4A/ C-Site');
+
+insert into customer values(001, 'Aarav', 'Sushma Enclave',  'The 7 Habits of Highly Effective People','2021-01-19', 203);
+insert into customer values(002, 'Priya', 'Parkside Residences', 'Mindset', '2021-01-20', 202);
+insert into customer values(003, 'Rohan', 'Sunset Heights','Dune', '2021-01-24', 201);
+insert into customer values(004, 'Arjun', 'Suncity', 'Computer Networks', '2021-03-10', 201);
+insert into customer values(005, 'Ananya', 'Mapelwood Apartments','Neuromancer', '2021-03-14', 203);
+insert into customer values(006, 'Parul', 'Whitefeild Apartments','Introduction to Algorithms', '2021-04-11', 202);
+insert into customer values(007, 'Kabir', 'Sunset Heights','Quiet',  '2021-04-28', 203);
+insert into customer values(008, 'Tanya', 'Suncity', 'Atomic Habits', '2021-05-06', 202);
+insert into customer values(009, 'Dhruvi', 'Parkside Residences','Brave New World', '2021-05-19', 201);
+insert into customer values(010, 'Aryan', 'Whitefeild Apartments','The Immortal Life of Henrietta Lacks', '2021-05-22', 202);
+
+insert into publisher values(1001, 'Fiction', 400, 1990);
+insert into publisher values(1002, 'sci-fi', 400, 1990);
+insert into publisher values(1003, 'Fiction', 400, 1990);
+insert into publisher values(1004, 'Horror', 400, 1990);
+insert into publisher values(1005, 'Science', 400, 1990);
+insert into publisher values(1006, 'Mystry', 400, 1990);
+insert into publisher values(1007, 'Drama', 400, 1990);
+insert into publisher values(1008, 'Biography', 400, 1990);
+insert into publisher values(1009, 'Self-help', 400, 1990);
+
+
+insert into author values('Dune', 'Frank Herbert');
+insert into author values('Neuromancer', 'William Gibson');
+insert into author values('Brave New World', 'Aldous Huxley');
+insert into author values('Introduction to Algorithms', 'Thomas H. Cormen');
+insert into author values('Computer Networks', 'James F. Kurose');
+insert into author values('The 7 Habits of Highly Effective People', 'Stephen R. Covey');
+insert into author values('Atomic Habits', 'James Clear');
+insert into author values('Mindset', 'Carol S. Dweck');
+insert into author values('The Immortal Life of Henrietta Lacks', 'Rebecca Skloot');
+insert into author values('Quiet', 'Susan Cain');
+
+
+insert into books values(101, 201, 1001, 'Dune');
+insert into books values(102, 203, 1005, 'Introduction to Algorithms');
+insert into books values(103, 202, 1009, 'The 7 Habits of Highly Effective People');
+insert into books values(104, 202, 1001, 'Brave New World');
+insert into books values(105, 203, 1005, 'Computer Networks');
+insert into books values(106, 201, 1006, 'The Immortal Life of Henrietta Lacks');
+insert into books values(107, 201, 1007, 'Atomic Habits');
+insert into books values(108, 202, 1007, 'Quiet');
+insert into books values(109, 203, 1009, 'Mindset');
+insert into books values(110, 201, 1001, 'Neuromancer');
+
+insert into staff values(1, 'Rajiv', 5000, 201, 1);
+insert into staff values(2, 'Aisha', 5000, 201, 2);
+insert into staff values(3, 'Rohit', 5000, 201, 3);
+insert into staff values(4, 'Vikram', 5000, 201, 4);
+insert into staff values(5, 'Meera', 5000, 201, 5);
+insert into staff values(6, 'Siddhart', 5000, 201, 6);
+insert into staff values(7, 'Neha', 5000, 201, 7);
+insert into staff values(8, 'Ankia', 5000, 201, 8);
+insert into staff values(9, 'Kartik', 5000, 201, 9);
+insert into staff values(10, 'Ankit', 5000, 201, 10);
+
+
+insert into issued_status values(2101, '2021-01-01', 'not returned', 1, 103);
+insert into issued_status values(2102, '2021-01-02', 'returned', 2, 109);
+insert into issued_status values(2103, '2021-01-04', 'returned', 3, 101);
+insert into issued_status values(2104, '2021-02-10', 'returned', 4, 105);
+insert into issued_status values(2105, '2021-02-14', 'returned', 5, 110);
+insert into issued_status values(2106, '2021-03-11', 'not returned', 6, 102);
+insert into issued_status values(2107, '2021-03-28', 'returned', 7, 108);
+insert into issued_status values(2108, '2021-04-06', 'not returned', 8, 107);
+insert into issued_status values(2109, '2021-04-07', 'returned', 9, 104);
+insert into issued_status values(2110, '2021-04-20', 'not returned', 10, 106);
